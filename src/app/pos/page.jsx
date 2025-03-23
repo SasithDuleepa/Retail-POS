@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Select from "react-select";
+import ItemQuickAdd from "../components/itemQuickAdd";
+import ItemCategorySearch from "../components/itemCategorySearch";
 
 export default function Page() {
   const options = [
@@ -108,8 +110,21 @@ export default function Page() {
   const HandleItemSearch = (e) => {};
   const HandleItemSelect = (e) => {};
 
+  //quick add item panel
+  const [isQuickAdd, setIsQuickAdd] = useState(false);
+
+  //item category search
+  const [isCategorySearch, setIsCategorySearch] = useState(false);
+
   return (
     <div className="">
+      {isQuickAdd && <ItemQuickAdd Close={() => setIsQuickAdd(!isQuickAdd)} />}
+      {isCategorySearch && (
+        <ItemCategorySearch
+          Close={() => setIsCategorySearch(!isCategorySearch)}
+        />
+      )}
+
       <div className="grid grid-cols-4 grid-rows-1 gap-0 ">
         <div className="col-span-3 h-screen flex flex-col ">
           <div className="h-1/6 bg-[var(--container-bg)]  p-1">
@@ -135,10 +150,15 @@ export default function Page() {
             <div className="w-full h-full border ">
               <p className="sub-title">Sale Item</p>
               <div className="w-full h-[80%] px-10 flex justify-between items-center">
-                <p>Barcode :</p>
+                <p>Barcode OR Item Name :</p>
                 <Select
                   className="w-4/6"
                   options={options}
+                  placeholder="Search by Name or Barcode..."
+                  isSearchable
+                  autoFocus
+                  menuPortalTarget={document.body} // Helps with z-index issues
+                  menuShouldScrollIntoView={false} // Prevents unexpected scrolling
                   styles={{
                     control: (baseStyles, state) => ({
                       ...baseStyles,
@@ -159,15 +179,25 @@ export default function Page() {
                     }),
                   }}
                 />
-                <button className="search-btn">Category</button>
-                <button className="search-btn">Search</button>
+                <button
+                  className="search-btn"
+                  onClick={() => setIsCategorySearch(!isCategorySearch)}
+                >
+                  Category
+                </button>
+                <button
+                  className="search-btn "
+                  onClick={() => setIsQuickAdd(!isQuickAdd)}
+                >
+                  +
+                </button>
               </div>
             </div>
           </div>
           <div className="h-4/6 bg-blue-700 overflow-hidden flex flex-col">
             <div className="relative flex-1 overflow-hidden">
               <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 sticky top-0 z-10 px-2">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 sticky top-0  px-2">
                   <tr>
                     <th scope="col" className="px-6 py-3">
                       Product Name
