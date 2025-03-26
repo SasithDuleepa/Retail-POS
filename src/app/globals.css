@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #497d74;
+  --foreground: #efe9d5;
+
+  --color-text: #000000;
+  --color-border: ;
 
   --container-bg: #27445d;
+
   --color-green: #045413;
   --color-red: #6a0606;
   --color-blue: #081755;
@@ -19,8 +23,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #27445d;
+    --foreground: #71bbb2;
+    --color-text: #ffffff;
   }
 }
 
@@ -30,10 +35,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.header {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-text);
+}
 .title {
   font-size: 26px;
   font-weight: 600;
-  color: black;
+  color: var(--color-text);
 }
 .label {
   font-size: 26px;
@@ -57,13 +67,15 @@ body {
 
 .btn {
   border: 2px solid rgba(0, 0, 0, 0.318);
+  background-color: #ffffff;
   color: #030303;
   border-radius: 10px;
   padding: 10px 20px;
 
   font-weight: 600;
   &&:hover {
-    border: 2px solid rgb(255, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    background-color: #ffffff8d;
   }
   &&:focus {
     border: 2px solid rgb(255, 255, 255);
@@ -92,4 +104,21 @@ body {
   background: rgb(69, 118, 190);
   padding: 10px 20px;
   border-radius: 10px;
+}
+
+.option-btn {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  background-color: #081755;
+  color: #ffffff;
+  font-size: 38px;
+  padding: 15px 30px;
+  width: 300px;
+  height: 200px;
+  transition: 0.4s;
+
+  &&:hover {
+    background-color: #00197e;
+    color: #f8f8f8;
+  }
 }
