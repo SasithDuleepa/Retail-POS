@@ -12,8 +12,12 @@ const Sidebar: React.FC = () => {
           <Link href="/inventory">inventory</Link>
         </li>
         <li className="py-2 hover:bg-gray-700 px-2 rounded">
+          <Link href="/users">Users</Link>
+        </li>
+        <li className="py-2 hover:bg-gray-700 px-2 rounded">
           <Link href="/settings">Settings</Link>
         </li>
+
       </ul>
     </div>
   );
