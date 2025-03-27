@@ -1,6 +1,7 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import Select from "react-select";
+import InventoryAdd from '../components/inventoryAdd';
 
 export default function Inventory() {
   const options = [
@@ -8,13 +9,18 @@ export default function Inventory() {
     { value: "strawberry", label: "Strawberry" },
     { value: "vanilla", label: "Vanilla" },
   ];
+
+  const[isInventoryAdd, setIsInventoryAdd] = useState(false)
   return (
-    <div className='px-4'>
+    <div className=''>
+       {isInventoryAdd && <InventoryAdd Close={()=>setIsInventoryAdd(false)}/>}
+    {/* <div className=''> */}
+     
       <p className=' header text-center my-2'>INVENTORY</p>
 
       <div className='border px-2 py-5 w-full flex flex-col items-center'>
         <p className='title text-left w-full'>Add Inventory </p>
-        <button className='mt-2 btn bg-amber-50 w-[800px] h-16 text-3xl '>ADD ITEM</button>
+        <button className='mt-2 btn bg-amber-50 w-[800px] h-16 text-3xl ' onClick={()=>setIsInventoryAdd(true)}>ADD ITEM</button>
       </div>
 
       <div className='border p-2 my-15 py-1.5'>
@@ -39,6 +45,7 @@ export default function Inventory() {
         <button className='option-btn'>Add Supplier</button>
         <button className='option-btn'>Stock Level</button>
       </div>
+    {/* </div> */}
     </div>
   )
 }
