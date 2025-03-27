@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Select from "react-select";
-import ItemQuickAdd from "../components/itemQuickAdd";
-import ItemCategorySearch from "../components/itemCategorySearch";
+import ItemQuickAdd from "../../components/itemQuickAdd";
+import ItemCategorySearch from "../../components/itemCategorySearch";
 
 export default function Page() {
   const options = [

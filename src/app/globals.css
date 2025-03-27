@@ -25,7 +25,7 @@
   :root {
     --background: #27445d;
     --foreground: #71bbb2;
-    --color-text: #ffffff;
+    --color-text: #040404;
   }
 }
 
@@ -48,6 +48,7 @@ body {
 .label {
   font-size: 26px;
   font-weight: 600;
+  color: var(--color-text);
 }
 
 .input {

@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Select from "react-select";
-import InventoryAdd from '../components/inventoryAdd';
+import InventoryAdd from '@/app/components/inventoryAdd';
 
 export default function Inventory() {
   const options = [
