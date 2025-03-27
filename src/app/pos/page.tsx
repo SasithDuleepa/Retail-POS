@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Select from "react-select";
-import ItemQuickAdd from "../../components/itemQuickAdd";
-import ItemCategorySearch from "../../components/itemCategorySearch";
+import ItemQuickAdd from "@/app/components/itemQuickAdd";
+import ItemCategorySearch from "@/app/components/itemCategorySearch";
 
 export default function Page() {
   const options = [
@@ -159,25 +159,25 @@ export default function Page() {
                   autoFocus
                   menuPortalTarget={document.body} // Helps with z-index issues
                   menuShouldScrollIntoView={false} // Prevents unexpected scrolling
-                  styles={{
-                    control: (baseStyles, state) => ({
-                      ...baseStyles,
-                      borderColor: state.isFocused ? "grey" : "red",
-                      color: "black",
-                    }),
-                    singleValue: (provided, state) => ({
-                      ...provided,
-                      color: state.data.color,
-                      fontSize: state.selectProps.myFontSize,
-                    }),
-                    option: (provided, state) => ({
-                      ...provided,
-                      fontWeight: state.isSelected ? "bold" : "normal",
-                      color: "black",
-                      backgroundColor: state.data.color,
-                      fontSize: state.selectProps.myFontSize,
-                    }),
-                  }}
+                //   styles={{
+                //     control: (baseStyles, state) => ({
+                //       ...baseStyles,
+                //       borderColor: state.isFocused ? "grey" : "red",
+                //       color: "black",
+                //     }),
+                //     singleValue: (provided, state) => ({
+                //       ...provided,
+                //       color: state.data.color,
+                //       fontSize: state.selectProps.myFontSize,
+                //     }),
+                //     option: (provided, state) => ({
+                //       ...provided,
+                //       fontWeight: state.isSelected ? "bold" : "normal",
+                //       color: "black",
+                //       backgroundColor: state.data.color,
+                //       fontSize: state.selectProps.myFontSize,
+                //     }),
+                //   }}
                 />
                 <button
                   className="search-btn"
